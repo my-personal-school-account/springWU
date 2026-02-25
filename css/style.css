@@ -1,0 +1,18 @@
+:root {
+  --main-bg: #262426;
+  --main-fg: #fff2ff;
+}
+
+body {
+  margin: 0;
+  background-color: var(--main-bg);
+  color: var(--main-fg);
+}
+
+nav {
+  display: none;
+}
+
+nav.show {
+  display: block;
+}
