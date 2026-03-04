@@ -3,8 +3,11 @@ fetch('header.html')
   .then(html => {
     document.getElementById('header-template').innerHTML = html;
     document.querySelector("button.nav-button").addEventListener("click", toggleMenu);
+    if (window.innerWidth >= 1000) {
+      document.querySelector("nav.togglable").classList.add("show");
+    }
   });
 
 function toggleMenu() {
-  document.querySelector("nav").classList.toggle("show");
+  document.querySelector("nav.togglable").classList.toggle("show");
 }

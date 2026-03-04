@@ -9,10 +9,78 @@ body {
   color: var(--main-fg);
 }
 
-nav {
-  display: none;
+div#wrapper {
+  min-height: 100vh;
+
+  display: grid;
+
+  header {
+    grid-area: hd;
+    background-color: salmon;
+
+    display: flex;
+  }
+
+  nav {
+    display: none;
+    grid-area: nv;
+    background-color: blueviolet;
+  }
+
+  nav.show {
+    display: block;
+  }
+
+  main {
+    grid-area: mn;
+    background-color: pink;
+  }
+
+  aside {
+    grid-area: as;
+    display: none;
+    background-color: greenyellow;
+  }
+
+  footer {
+    grid-area: ft;
+    background-color: aquamarine;
+  }
 }
 
-nav.show {
-  display: block;
+@media screen and (max-width: 999px) {
+  div#wrapper {
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr;
+
+    grid-template-areas: "hd"
+      "mn"
+      "ft";
+
+    nav {
+      width: 80vw;
+      height: 100vh;
+      position: absolute;
+      left: 0;
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  div#wrapper {
+    grid-template-columns: minmax(17em, 1fr) minmax(0, 120ch) minmax(17em, 1fr);
+    grid-template-rows: auto 1fr auto;
+
+    button.nav-button {
+      display: none;
+    }
+
+    grid-template-areas: "hd hd hd"
+    "nv mn as"
+    "ft ft ft";
+
+    aside {
+      display: block;
+    }
+  }
 }
