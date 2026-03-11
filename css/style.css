@@ -24,6 +24,7 @@ div#wrapper {
   button {
     padding: 0;
     color: var(--main-fg);
+    aspect-ratio: 1;
   }
 
   div.nav-wrapper {
@@ -44,6 +45,16 @@ div#wrapper {
       transform: translateX(-100%);
     }
 
+    div.fade-layer {
+      display: none;
+      background-color: rgba(0, 0, 0, 0.6);
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
     nav.togglable.with-transitions {
       transition: transform var(--transition-time) var(--transition-kind), visibility var(--transition-time) var(--transition-kind);
     }
@@ -60,9 +71,12 @@ div#wrapper {
       position: absolute;
       top: calc(50% - calc(var(--button-height) / 2));
       /* top: calc(100% - var(--button-height)); */
-      transition: right var(--transition-time) var(--transition-kind);
 
       right: calc(100% - var(--button-width));
+    }
+
+    button.nav-button.side-button.with-transitions {
+      transition: right var(--transition-time) var(--transition-kind);
     }
 
     button.nav-button.side-button.is-left {
@@ -98,14 +112,23 @@ div#wrapper {
       "mn"
       "ft";
 
-    nav.togglable {
-      height: 100vh;
-      position: absolute;
-      left: 0;
-    }
+    div.nav-wrapper {
 
-    button.nav-button.side-button {
-      display: none;
+      div.fade-layer.show {
+        display: block;
+      }
+
+      nav.togglable {
+        width: 80vw;
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+      }
+
+      button.nav-button.side-button {
+        display: none;
+      }
     }
   }
 }
