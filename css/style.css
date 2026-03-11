@@ -21,14 +21,55 @@ div#wrapper {
     display: flex;
   }
 
-  nav {
-    display: none;
-    grid-area: nv;
-    background-color: blueviolet;
+  button {
+    padding: 0;
+    color: var(--main-fg);
   }
 
-  nav.show {
-    display: block;
+  div.nav-wrapper {
+    position: relative;
+
+    --transition-time: 0.3s;
+    --transition-kind: ease;
+
+    nav.togglable {
+
+      width: 100%;
+      max-width: 80vw;
+      overflow: hidden;
+      visibility: hidden;
+      grid-area: nv;
+      background-color: blueviolet;
+
+      transform: translateX(-100%);
+    }
+
+    nav.togglable.with-transitions {
+      transition: transform var(--transition-time) var(--transition-kind), visibility var(--transition-time) var(--transition-kind);
+    }
+
+    nav.togglable.show {
+      transform: translateX(0);
+      visibility: visible;
+    }
+
+    button.nav-button.side-button {
+      --button-width: 28px;
+      --button-height: 31px;
+
+      position: absolute;
+      top: calc(50% - calc(var(--button-height) / 2));
+      /* top: calc(100% - var(--button-height)); */
+      transition: right var(--transition-time) var(--transition-kind);
+
+      right: calc(100% - var(--button-width));
+    }
+
+    button.nav-button.side-button.is-left {
+      transform: scaleX(-1);
+      right: 0;
+      /* right: calc(100% - var(--button-width)); */
+    }
   }
 
   main {
@@ -57,11 +98,14 @@ div#wrapper {
       "mn"
       "ft";
 
-    nav {
-      width: 80vw;
+    nav.togglable {
       height: 100vh;
       position: absolute;
       left: 0;
+    }
+
+    button.nav-button.side-button {
+      display: none;
     }
   }
 }
@@ -71,8 +115,12 @@ div#wrapper {
     grid-template-columns: minmax(17em, 1fr) minmax(0, 120ch) minmax(17em, 1fr);
     grid-template-rows: auto 1fr auto;
 
-    button.nav-button {
+    button.nav-button.header-button {
       display: none;
+    }
+
+    nav.togglable {
+      height: 100%;
     }
 
     grid-template-areas: "hd hd hd"
