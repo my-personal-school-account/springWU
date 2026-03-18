@@ -14,17 +14,46 @@ div#wrapper {
 
   display: grid;
 
+  .empty {
+    visibility: hidden;
+  }
+
+  div#button-justifier {
+  }
+
   header {
     grid-area: hd;
     background-color: salmon;
 
     display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+  }
+
+  nav#topnav {
+    display: flex;
+    justify-content: space-between;
+
+    --item-side-padding: 2em;
+
+    a {
+      display: block;
+      padding-left: var(--item-side-padding);
+      padding-right: var(--item-side-padding);
+    }
   }
 
   button {
     padding: 0;
     color: var(--main-fg);
     aspect-ratio: 1;
+    /* border-style: none; */
+  }
+
+  i.material-icons {
+    padding: 5px;
   }
 
   div.nav-wrapper {
@@ -65,8 +94,8 @@ div#wrapper {
     }
 
     button.nav-button.side-button {
-      --button-width: 28px;
-      --button-height: 31px;
+      --button-width: 38px;
+      --button-height: var(--button-width);
 
       position: absolute;
       top: calc(50% - calc(var(--button-height) / 2));
@@ -112,6 +141,12 @@ div#wrapper {
       "mn"
       "ft";
 
+    nav#topnav {
+      h1 {
+        font-size: 1em;
+      }
+    }
+
     div.nav-wrapper {
 
       div.fade-layer.show {
@@ -139,7 +174,7 @@ div#wrapper {
     grid-template-rows: auto 1fr auto;
 
     button.nav-button.header-button {
-      display: none;
+      visibility: hidden;
     }
 
     nav.togglable {
