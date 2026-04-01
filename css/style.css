@@ -1,11 +1,19 @@
 :root {
-  --main-bg: #262426;
+
+  --dark-bg: #2d2a2d;
+  --lighter-bg: #262426;
   --main-fg: #fff2ff;
+  --brand-color: #ea413b;
+}
+
+* {
+  border-color: var(--brand-color);
+  border-width: 2px;
 }
 
 body {
   margin: 0;
-  background-color: var(--main-bg);
+  background-color: var(--lighter-bg);
   color: var(--main-fg);
 }
 
@@ -18,14 +26,12 @@ div#wrapper {
     visibility: hidden;
   }
 
-  div#button-justifier {
-  }
-
   header {
     grid-area: hd;
-    background-color: salmon;
 
     display: flex;
+
+    border-bottom-style: solid;
 
     justify-content: space-between;
     align-items: center;
@@ -69,7 +75,7 @@ div#wrapper {
       overflow: hidden;
       visibility: hidden;
       grid-area: nv;
-      background-color: blueviolet;
+      /* background-color: blueviolet; */
 
       transform: translateX(-100%);
     }
@@ -116,19 +122,28 @@ div#wrapper {
   }
 
   main {
+    display: flex;
+    flex-direction: column;
     grid-area: mn;
-    background-color: pink;
+    align-items: center;
+    background-color: var(--dark-bg);
+    overflow-y: scroll;
+
+    article {
+      max-width: 90ch;
+    }
   }
 
   aside {
     grid-area: as;
     display: none;
-    background-color: greenyellow;
+    /* background-color: greenyellow; */
   }
 
   footer {
+    border-top-style: solid;
     grid-area: ft;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
   }
 }
 
@@ -170,8 +185,9 @@ div#wrapper {
 
 @media screen and (min-width: 1000px) {
   div#wrapper {
+    max-height: 100vh;
     grid-template-columns: minmax(17em, 1fr) minmax(0, 120ch) minmax(17em, 1fr);
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto minmax(0, 1fr) auto;
 
     button.nav-button.header-button {
       visibility: hidden;
