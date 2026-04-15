@@ -13,6 +13,10 @@
   border-width: 2px;
 }
 
+button {
+  cursor: pointer;
+}
+
 body {
   margin: 0;
   background-color: var(--dark-bg);
@@ -80,16 +84,18 @@ div#wrapper {
 
       transform: translateX(-100%);
 
-      div#div-tree {
+      ul#div-tree {
+
+        list-style: none;
 
         padding: 2em;
+        padding-left: 1em;
 
         display: flex;
         flex-direction: column;
         align-items: flex-start;
 
-        div {
-          max-width: 100%;
+        li {
           border-style: solid;
           padding: 0.5em;
           margin-bottom: 1em;
@@ -97,7 +103,7 @@ div#wrapper {
 
           a {
             color: var(--main-fg);
-            text-decoration: none;
+            /* text-decoration: none; */
           }
         }
       }
@@ -154,6 +160,9 @@ div#wrapper {
 
     article {
       max-width: 90ch;
+      line-height: 165%;
+      /* font-weight: 420; */
+      padding-bottom: 1.5em;
     }
   }
 

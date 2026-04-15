@@ -23,14 +23,15 @@ fetch('header.html')
     let articleHeaders = document.querySelectorAll(articleHeadingString);
     articleHeaders.forEach((header) => {
 
-      let heading_number = header.tagName.charAt(1) - 1;
+      let heading_number = header.tagName.charAt(1);
+      let padding_text = (heading_number - 1) * 1.5 + "em";
 
       let text = header.textContent;
       header.id = text;
       divTree.insertAdjacentHTML("beforeend", `
-          <div style="margin-left:${heading_number}em;">
+          <li style="margin-left:${padding_text};">
             <a href="#${text}">${text}</a>
-          </div>
+          </li>
         `)
 
     });
