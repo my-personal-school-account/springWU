@@ -1,19 +1,21 @@
 :root {
 
-  --dark-bg: #2d2a2d;
-  --lighter-bg: #262426;
+  --dark-bg: #262426;
+  --lighter-bg: #2d2a2d;
   --main-fg: #fff2ff;
   --brand-color: #ea413b;
+  --standard-side-padding: 1em;
 }
 
 * {
   border-color: var(--brand-color);
+  border-radius: 4px;
   border-width: 2px;
 }
 
 body {
   margin: 0;
-  background-color: var(--lighter-bg);
+  background-color: var(--dark-bg);
   color: var(--main-fg);
 }
 
@@ -54,8 +56,8 @@ div#wrapper {
   button {
     padding: 0;
     color: var(--main-fg);
+    background-color: var(--brand-color);
     aspect-ratio: 1;
-    /* border-style: none; */
   }
 
   i.material-icons {
@@ -75,9 +77,30 @@ div#wrapper {
       overflow: hidden;
       visibility: hidden;
       grid-area: nv;
-      /* background-color: blueviolet; */
 
       transform: translateX(-100%);
+
+      div#div-tree {
+
+        padding: 2em;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        div {
+          max-width: 100%;
+          border-style: solid;
+          padding: 0.5em;
+          margin-bottom: 1em;
+          background-color: var(--brand-color);
+
+          a {
+            color: var(--main-fg);
+            text-decoration: none;
+          }
+        }
+      }
     }
 
     div.fade-layer {
@@ -126,7 +149,7 @@ div#wrapper {
     flex-direction: column;
     grid-area: mn;
     align-items: center;
-    background-color: var(--dark-bg);
+    background-color: var(--lighter-bg);
     overflow-y: scroll;
 
     article {
@@ -144,6 +167,8 @@ div#wrapper {
     border-top-style: solid;
     grid-area: ft;
     /* background-color: aquamarine; */
+    padding-left: var(--standard-side-padding);
+    padding-right: var(--standard-side-padding);
   }
 }
 
@@ -155,6 +180,13 @@ div#wrapper {
     grid-template-areas: "hd"
       "mn"
       "ft";
+
+    main {
+      article {
+        padding-left: var(--standard-side-padding);
+        padding-right: var(--standard-side-padding);
+      }
+    }
 
     nav#topnav {
       h1 {
@@ -174,6 +206,7 @@ div#wrapper {
         left: 0;
         top: 0;
         bottom: 0;
+        background-color: var(--dark-bg);
       }
 
       button.nav-button.side-button {

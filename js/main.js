@@ -1,6 +1,8 @@
 const togglableNavString = "nav.togglable";
 const sideButtonArrowString = "button.nav-button.side-button";
 const fadeLayerString = "div.fade-layer";
+const articleHeadingString = "article h1, article h2, article h3, article h4, article h5, article h6";
+const divTreeString = togglableNavString + " #div-tree";
 
 fetch('header.html')
   .then(res => res.text())
@@ -16,6 +18,22 @@ fetch('header.html')
       document.querySelector(fadeLayerString).classList.add("show");
       sideButton.classList.add("is-left");
     }
+
+    let divTree = document.querySelector(divTreeString);
+    let articleHeaders = document.querySelectorAll(articleHeadingString);
+    articleHeaders.forEach((header) => {
+
+      let heading_number = header.tagName.charAt(1) - 1;
+
+      let text = header.textContent;
+      header.id = text;
+      divTree.insertAdjacentHTML("beforeend", `
+          <div style="margin-left:${heading_number}em;">
+            <a href="#${text}">${text}</a>
+          </div>
+        `)
+
+    });
 
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
