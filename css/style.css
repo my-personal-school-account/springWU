@@ -13,14 +13,18 @@
   border-width: 2px;
 }
 
-button {
-  cursor: pointer;
-}
-
 body {
   margin: 0;
   background-color: var(--dark-bg);
   color: var(--main-fg);
+}
+
+button {
+  cursor: pointer;
+}
+
+a:visited {
+  color: LinkText;
 }
 
 div#wrapper {
@@ -159,6 +163,9 @@ div#wrapper {
     overflow-y: scroll;
 
     article {
+      a:visited {
+        color: VisitedText;
+      }
       max-width: 90ch;
       line-height: 165%;
       /* font-weight: 420; */
@@ -169,15 +176,13 @@ div#wrapper {
   aside {
     grid-area: as;
     display: none;
-    /* background-color: greenyellow; */
   }
 
   footer {
     border-top-style: solid;
     grid-area: ft;
-    /* background-color: aquamarine; */
-    padding-left: var(--standard-side-padding);
-    padding-right: var(--standard-side-padding);
+    padding: 2px;
+    padding-top: 0;
   }
 }
 
