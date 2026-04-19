@@ -5,12 +5,28 @@
   --main-fg: #fff2ff;
   --brand-color: #ea413b;
   --standard-side-padding: 1em;
+  --opacity-on-hover: 0.80;
 }
 
 * {
   border-color: var(--brand-color);
   border-radius: 4px;
   border-width: 2px;
+}
+
+.brand-link {
+  color: var(--brand-color);
+  text-decoration: none;
+
+  * {
+    color: var(--brand-color);
+  }
+
+  cursor: pointer;
+}
+
+.brand-link:hover {
+  opacity: var(--opacity-on-hover);
 }
 
 body {
@@ -21,6 +37,54 @@ body {
 
 button {
   cursor: pointer;
+}
+
+button:hover {
+  opacity: var(--opacity-on-hover);
+}
+
+#links-grid {
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: center;
+  align-items: flex-start;
+
+  max-width: 100%;
+}
+
+.link-card {
+  display: block;
+  margin: var(--standard-side-padding);
+  max-width: 30em;
+  aspect-ratio: 2 / 1;
+  background-color: var(--dark-bg);
+
+  border-radius: 20px;
+  display: flex;
+
+  align-content: center;
+
+  border-style: solid;
+  border-width: 6px;
+
+  img {
+    padding: 2em;
+    padding-left: 1em;
+  }
+
+  div {
+    justify-self: flex-end;
+    display: flex;
+    align-content: center;
+    display: block;
+    height: auto;
+
+    span {
+      font-size: 1.5em;
+      color: inherit;
+    }
+  }
 }
 
 a:visited {
@@ -49,6 +113,18 @@ img.in-article {
   margin-bottom: var(--standard-side-padding);
 }
 
+.source-code-pro {
+  font-family: "Source Code Pro", monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.dm-mono {
+
+  font-family: "DM Mono", monospace;
+  font-style: normal;
+}
+
 div#wrapper {
   min-height: 100vh;
   overflow: hidden;
@@ -69,6 +145,8 @@ div#wrapper {
     justify-content: space-between;
     align-items: center;
     padding: 5px;
+
+    font-family: ;
   }
 
   nav#topnav {
@@ -122,6 +200,10 @@ div#wrapper {
         flex-direction: column;
         align-items: flex-start;
 
+        li:hover {
+          opacity: var(--opacity-on-hover);
+        }
+
         li {
           border-style: solid;
           padding: 0.5em;
@@ -130,7 +212,7 @@ div#wrapper {
 
           a {
             color: var(--main-fg);
-            /* text-decoration: none; */
+            text-decoration: none;
           }
         }
       }
@@ -253,6 +335,12 @@ div#wrapper {
         display: none;
       }
     }
+  }
+
+  .link-card {
+    margin-left: 0;
+    margin-right: 0;
+    width: 85%;
   }
 }
 
