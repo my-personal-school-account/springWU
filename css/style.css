@@ -27,6 +27,28 @@ a:visited {
   color: LinkText;
 }
 
+section.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+
+  img {
+    padding: 1em;
+    max-width: 45%;
+    min-width: 300px;
+  }
+}
+
+img.in-article {
+
+  display: block;
+  max-height: 20em;
+  max-width: calc(100% - var(--standard-side-padding));
+  margin-top: var(--standard-side-padding);
+  margin-bottom: var(--standard-side-padding);
+}
+
 div#wrapper {
   min-height: 100vh;
   overflow: hidden;
@@ -201,6 +223,8 @@ div#wrapper {
       article {
         padding-left: var(--standard-side-padding);
         padding-right: var(--standard-side-padding);
+
+        max-width: calc(100% - 2 * var(--standard-side-padding));
       }
     }
 
